@@ -2,7 +2,7 @@ import cv2
 import os
 
 # === Step 1: Load Image ===
-image_path = r"image.png"  # 🔁 Change if needed
+image_path = r"image_fix.png"  # 🔁 Change if needed
 
 if not os.path.exists(image_path):
     print("❌ Image path not found!")

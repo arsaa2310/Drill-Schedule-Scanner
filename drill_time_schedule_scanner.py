@@ -9,7 +9,10 @@ from sya import coordinates, tambah_waktu
 st.set_page_config(layout="centered")
 st.title("🖼️ Analisis Gambar Time Sheet Drilling")
 
-uploaded_file = r"/mount/src/blast-drill-data-scanner/image_fix.png"
+# uploaded_file = r"/mount/src/drill-time-schedule-scanner/image_fix.png"
+# uploaded_file = r"image_test.png"
+uploaded_file = st.file_uploader("📤 Unggah gambar timesheet (format: JPG, PNG, dsb)", type=["jpg", "jpeg", "png"])
+
 
 if uploaded_file is not None:
     # Baca dan konversi gambar ke OpenCV format
@@ -34,7 +37,7 @@ if uploaded_file is not None:
             center_x = (x1 + x2) // 2
             center_y = (y1 + y2) // 2
 
-
+            print(activity, (x1, y1, x2, y2))
             # Hitung jumlah pixel hitam di area tersebut
             total_pixels = roi.size
             black_pixels = np.sum(roi < BLACK_THRESHOLD)
@@ -54,10 +57,11 @@ if uploaded_file is not None:
                     "Waktu": t,
                     "Aktivitas": activity
                 })
+            
 
                 # Tampilkan label
-                # cv2.putText(image, activity, (x1, y1 - 5), cv2.FONT_HERSHEY_PLAIN, 0.7, (0, 255, 0), 1)
-                # cv2.circle(image, (center_x, center_y), 3, (255, 0, 0), -1)
+                cv2.putText(image, activity, (x1, y1 - 5), cv2.FONT_HERSHEY_PLAIN, 0.7, (0, 255, 0), 1)
+                cv2.circle(image, (center_x, center_y), 3, (255, 0, 0), -1)
                 print(t, activity)    
 
         t = tambah_waktu(t,10)
