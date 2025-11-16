@@ -10,7 +10,5 @@ Aplikasi untuk mendeteksi dan merekam jadwal kegiatan drilling per shift di area
 
 ## Cara Menjalankan
 
-1. Clone repo:
-```bash
-git clone https://github.com/username/drill-schedule-scanner.git
-cd drill-schedule-scanner
+<img width="719" height="658" alt="image" src="https://github.com/user-attachments/assets/5ef1ae89-b9cf-41af-8b7e-199fcb9c0787" />
+
